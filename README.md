@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Haley!
 
 🎓 **Sophomore at Stanford University, studying Computer Science**  
-🔭 **Aspiring Data Scientist | Machine Learning and Fintech Enthusiast**
+🔭 **Aspiring Data Scientist & SWE **
 
 I’m passionate about tackling real-world problems through data analysis and predictive modeling. Continuously learning and building my skills, I believe that taking initiative is key to growth. (Ask me about growing my technical skills as a Break Through Tech Fellow!)  
 

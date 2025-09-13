@@ -1,10 +1,218 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>
-      Haley's First Heading
-    </h1>
-    <p> This is the first step in deploying my GitHub Pages website!</p>
-    
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haley Lepe - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        
+        .profile-section {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4em;
+            font-weight: bold;
+        }
+        
+        .bio {
+            text-align: center;
+        }
+        
+        .bio h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .bio p {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        .tech-stack {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .tech-stack h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tech-item {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .links {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .links h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .link-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .link-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .link-button:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .contact {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .link-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Haley Lepe</h1>
+            <p class="subtitle">Sophomore at Stanford University | Computer Science | Aspiring Data Scientist & SWE</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="profile-section">
+                <div class="profile-image">HL</div>
+                <div class="bio">
+                    <h2>About Me</h2>
+                    <p>I'm passionate about tackling real-world problems through data analysis and predictive modeling. Continuously learning and building my skills, I believe that taking initiative is key to growth.</p>
+                    <p>Currently, I'm focusing on building machine learning models and diving deeper into data science. I'm looking for an internship where I can contribute to exciting projects and learn from industry professionals.</p>
+                    <p><strong>Fun Fact:</strong> A matcha/coffee is my favorite accessory! You can find me sipping on one while coding to my favorite Pokemon playlist, engaging in fun discussions on AI ethics, or decompressing with a TikTok scroll.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <h3>🛠 Tech Stack</h3>
+            <div class="tech-list">
+                <span class="tech-item">Python</span>
+                <span class="tech-item">Java</span>
+                <span class="tech-item">C++</span>
+                <span class="tech-item">Pandas</span>
+                <span class="tech-item">NumPy</span>
+                <span class="tech-item">scikit-learn</span>
+                <span class="tech-item">TensorFlow</span>
+                <span class="tech-item">Jupyter Notebooks</span>
+                <span class="tech-item">Google Colab</span>
+                <span class="tech-item">Git</span>
+                <span class="tech-item">GitHub</span>
+            </div>
+        </div>
+        
+        <div class="links">
+            <h3>Connect With Me</h3>
+            <div class="link-buttons">
+                <a href="http://www.linkedin.com/in/haleylepe" class="link-button" target="_blank">LinkedIn</a>
+                <a href="https://github.com/haleylepe" class="link-button" target="_blank">GitHub</a>
+            </div>
+            <div class="contact">
+                <p>📧 <a href="mailto:halepe@stanford.edu">halepe@stanford.edu</a></p>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

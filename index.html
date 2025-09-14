@@ -443,6 +443,114 @@
             transform: translateY(-1px);
         }
         
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: var(--container-bg);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(88, 111, 107, 0.2);
+        }
+        
+        .modal-title {
+            color: #586F6B;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            line-height: 1;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #586F6B;
+        }
+        
+        .modal-achievements {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .modal-achievement-item {
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            background: var(--achievement-bg);
+            border: 1px solid var(--achievement-border);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .modal-achievement-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 15px var(--container-shadow);
+            background: rgba(88, 111, 107, 0.15);
+        }
+        
+        .modal-achievement-date {
+            font-size: 0.85em;
+            color: #586F6B;
+            font-weight: 600;
+            min-width: 70px;
+            flex-shrink: 0;
+        }
+        
+        .modal-achievement-title {
+            font-size: 0.95em;
+            font-weight: 500;
+            color: var(--text-color);
+            flex: 1;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -522,16 +630,16 @@
                     <h3 class="achievements-subtitle">Recent Achievements</h3>
                     <ul class="achievements-list-small">
                         <li class="achievement-item-small">
-                            <span class="achievement-date-small">09/2025</span>
-                            <span class="achievement-title-small">Offered and accepted year-round internship @ SAS</span>
+                            <span class="achievement-date-small">06/2024</span>
+                            <span class="achievement-title-small">Accepted to Stanford University with full-tuition scholarship!</span>
                         </li>
                         <li class="achievement-item-small">
-                            <span class="achievement-date-small">08/2025</span>
-                            <span class="achievement-title-small">Selected as a FLI Community Coordinator for the 25-26 school year</span>
+                            <span class="achievement-date-small">05/2024</span>
+                            <span class="achievement-title-small">Graduated from MiraCosta College - Re-accepted to all universities from high school</span>
                         </li>
                         <li class="achievement-item-small">
-                            <span class="achievement-date-small">06/2025</span>
-                            <span class="achievement-title-small">Started my internship with SAS!</span>
+                            <span class="achievement-date-small">08/2024</span>
+                            <span class="achievement-title-small">Completed research internship at University of Pennsylvania</span>
                         </li>
                     </ul>
                     <a href="#" class="show-more-small" onclick="showMoreAchievements()">Show More Achievements</a>
@@ -550,6 +658,38 @@
             <div class="contact">
                 <p>📧 <a href="mailto:halepe@stanford.edu">halepe@stanford.edu</a></p>
             </div>
+        </div>
+    </div>
+    
+    <!-- Achievements Modal -->
+    <div id="achievementsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">All Achievements</h2>
+                <span class="close">&times;</span>
+            </div>
+            <ul class="modal-achievements">
+                <li class="modal-achievement-item">
+                  <span class="modal-achievement-date">08/2024</span>
+                  <span class="modal-achievement-title">Completed research internship at University of Pennsylvania</span>
+              </li>
+                <li class="modal-achievement-item">
+                    <span class="modal-achievement-date">06/2024</span>
+                    <span class="modal-achievement-title">Accepted to Stanford University with full-tuition scholarship</span>
+                </li>
+                <li class="modal-achievement-item">
+                    <span class="modal-achievement-date">05/2024</span>
+                    <span class="modal-achievement-title">Graduated from MiraCosta College - Re-accepted to all universities from high school</span>
+                </li>
+                <li class="modal-achievement-item">
+                  <span class="modal-achievement-date">08/2023</span>
+                  <span class="modal-achievement-title"> Received a Undergraduate Poster Presentation Award from SACNAS Conference</span>
+              </li>
+                <li class="modal-achievement-item">
+                    <span class="modal-achievement-date">8/2023</span>
+                    <span class="modal-achievement-title">Completed UC Berkeley Transfer-to-Excellence Summer Research Program</span>
+                </li>
+            </ul>
         </div>
     </div>
     
@@ -575,10 +715,38 @@
             }
         });
         
+        // Modal Functionality
+        const modal = document.getElementById('achievementsModal');
+        const showMoreBtn = document.querySelector('.show-more-small');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        
         // Show More Achievements Function
         function showMoreAchievements() {
-            alert('This would link to a full achievements page with all your accomplishments, projects, and milestones!');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         }
+        
+        // Close modal when clicking the X
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
     </script>
   </body>
 </html>

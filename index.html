@@ -22,31 +22,45 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .container {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             background-color: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-width: 900px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            max-width: 1000px;
             width: 100%;
             margin: 20px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            gap: 40px;
+        }
+        
+        .image-section {
+            flex-shrink: 0;
+            text-align: center;
         }
         
         .profile-img {
-            width: 200px;
-            height: 250px;
-            border-radius: 15px;
+            width: 220px;
+            height: 280px;
+            border-radius: 20px;
             object-fit: cover;
-            margin-right: 30px;
-            border: 4px solid #fff;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 6px solid #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
         }
         
         .content {
@@ -142,6 +156,293 @@
             text-decoration: underline;
         }
         
+        /* Theme Toggle Switch */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #586F6B;
+            transition: .4s;
+            border-radius: 30px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "☀️";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        input:checked + .slider {
+            background-color: #333;
+        }
+        
+        input:checked + .slider:before {
+            content: "🌙";
+            transform: translateX(30px);
+        }
+        
+        /* CSS Variables for Theme */
+        :root {
+            --bg-color: #DDD5D0;
+            --text-color: #333;
+            --container-bg: #fff;
+            --container-shadow: rgba(0,0,0,0.1);
+            --subtitle-color: #666;
+            --contact-color: #666;
+            --social-bg: #f8f9fa;
+            --social-border: #e9ecef;
+            --achievements-bg: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+            --achievements-border: #dee2e6;
+            --achievement-bg: rgba(88, 111, 107, 0.1);
+            --achievement-border: rgba(88, 111, 107, 0.2);
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --container-bg: #2d2d2d;
+            --container-shadow: rgba(0,0,0,0.3);
+            --subtitle-color: #b0b0b0;
+            --contact-color: #b0b0b0;
+            --social-bg: #3a3a3a;
+            --social-border: #4a4a4a;
+            --achievements-bg: linear-gradient(90deg, #2d2d2d 0%, #3a3a3a 50%, #2d2d2d 100%);
+            --achievements-border: #4a4a4a;
+            --achievement-bg: rgba(88, 111, 107, 0.1);
+            --achievement-border: rgba(88, 111, 107, 0.3);
+        }
+        
+        /* Apply CSS Variables */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            background-color: var(--container-bg);
+            box-shadow: 0 4px 20px var(--container-shadow);
+        }
+        
+        h1 {
+            color: var(--text-color);
+        }
+        
+        .subtitle {
+            color: var(--subtitle-color);
+        }
+        
+        .bio p {
+            color: var(--text-color);
+        }
+        
+        .contact {
+            color: var(--contact-color);
+        }
+        
+        .social-link {
+            background: var(--social-bg);
+            border-color: var(--social-border);
+        }
+        
+        .achievements-container {
+            background: var(--achievements-bg);
+            border: 1px solid var(--achievements-border);
+        }
+        
+        .achievement-item {
+            background: var(--achievement-bg);
+            border: 1px solid var(--achievement-border);
+            color: var(--text-color);
+        }
+        
+        /* Static Achievements Section */
+        .achievements-section {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px 0;
+            padding: 25px;
+            background: var(--achievements-bg);
+            border: 1px solid var(--achievements-border);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px var(--container-shadow);
+        }
+        
+        .achievements-title {
+            text-align: center;
+            color: #586F6B;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .achievement-item {
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .achievement-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--container-shadow);
+        }
+        
+        .achievement-date {
+            font-size: 0.8em;
+            color: #586F6B;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .achievement-title {
+            font-size: 0.95em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+        
+        .achievement-description {
+            font-size: 0.85em;
+            line-height: 1.4;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+        
+        .show-more {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #586F6B;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #586F6B;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        
+        .show-more:hover {
+            background: #586F6B;
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        /* Achievements Subsection (within bio) */
+        .achievements-subsection {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(88, 111, 107, 0.2);
+        }
+        
+        .achievements-subtitle {
+            color: #586F6B;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.3px;
+        }
+        
+        .achievements-list-small {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .achievement-item-small {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: var(--achievement-bg);
+            border: 1px solid var(--achievement-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .achievement-item-small:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px var(--container-shadow);
+            background: rgba(88, 111, 107, 0.15);
+        }
+        
+        .achievement-date-small {
+            font-size: 0.8em;
+            color: #586F6B;
+            font-weight: 600;
+            min-width: 60px;
+            flex-shrink: 0;
+        }
+        
+        .achievement-title-small {
+            font-size: 0.9em;
+            font-weight: 500;
+            color: var(--text-color);
+            flex: 1;
+        }
+        
+        .show-more-small {
+            display: inline-block;
+            color: #586F6B;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9em;
+            padding: 8px 16px;
+            border: 1px solid #586F6B;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        
+        .show-more-small:hover {
+            background: #586F6B;
+            color: white;
+            transform: translateY(-1px);
+        }
+        
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -163,12 +464,47 @@
             h1 {
                 font-size: 1.8em;
             }
+            
+            .achievements-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .achievements-section {
+                padding: 20px;
+                margin: 15px 0;
+            }
+            
+            .achievement-item-small {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            
+            .achievement-date-small {
+                min-width: auto;
+            }
+            
+            .achievements-subsection {
+                margin-top: 20px;
+                padding-top: 15px;
+            }
         }
     </style>
 </head>
-<body>
+  <body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    
     <div class="container">
-        <img src="itsame-haley.png" alt="Haley L" class="profile-img">
+        <div class="image-section">
+            <img src="itsame-haley.png" alt="Haley L" class="profile-img">
+        </div>
         
         <div class="content">
             <h1>Hello! I'm Haley Lepe</h1>
@@ -180,6 +516,26 @@
                 <p><strong>Interests:</strong> Travel, content creation, building products, and learning new technologies.</p>
                 
                 <p><strong>Dream Travel Locations:</strong> Argentina, Thailand & Vietnam!</p>
+                
+                <!-- Recent Achievements Section -->
+                <div class="achievements-subsection">
+                    <h3 class="achievements-subtitle">Recent Achievements</h3>
+                    <ul class="achievements-list-small">
+                        <li class="achievement-item-small">
+                            <span class="achievement-date-small">09/2025</span>
+                            <span class="achievement-title-small">Offered and accepted year-round internship @ SAS</span>
+                        </li>
+                        <li class="achievement-item-small">
+                            <span class="achievement-date-small">08/2025</span>
+                            <span class="achievement-title-small">Selected as a FLI Community Coordinator for the 25-26 school year</span>
+                        </li>
+                        <li class="achievement-item-small">
+                            <span class="achievement-date-small">06/2025</span>
+                            <span class="achievement-title-small">Started my internship with SAS!</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="show-more-small" onclick="showMoreAchievements()">Show More Achievements</a>
+                </div>
             </div>
             
             <div class="links">
@@ -196,5 +552,33 @@
             </div>
         </div>
     </div>
-</body>
+    
+    <script>
+        // Theme Toggle Functionality
+        const toggleSwitch = document.getElementById('theme-toggle');
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+        
+        toggleSwitch.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Show More Achievements Function
+        function showMoreAchievements() {
+            alert('This would link to a full achievements page with all your accomplishments, projects, and milestones!');
+        }
+    </script>
+  </body>
 </html>

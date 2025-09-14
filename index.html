@@ -551,6 +551,178 @@
             flex: 1;
         }
         
+        /* News Section Styles */
+        .news-subsection {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(88, 111, 107, 0.2);
+        }
+        
+        .news-subtitle {
+            color: #586F6B;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.3px;
+        }
+        
+        .news-list-small {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .news-item-small {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(88, 111, 107, 0.08);
+            border: 1px solid rgba(88, 111, 107, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .news-item-small:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px var(--container-shadow);
+            background: rgba(88, 111, 107, 0.12);
+        }
+        
+        .news-date-small {
+            font-size: 0.8em;
+            color: #586F6B;
+            font-weight: 600;
+            min-width: 60px;
+            flex-shrink: 0;
+        }
+        
+        .news-title-small {
+            font-size: 0.9em;
+            font-weight: 500;
+            color: var(--text-color);
+            flex: 1;
+        }
+        
+        .show-more-news {
+            display: inline-block;
+            color: #586F6B;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9em;
+            padding: 8px 16px;
+            border: 1px solid #586F6B;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: transparent;
+            margin-top: 10px;
+        }
+        
+        .show-more-news:hover {
+            background: #586F6B;
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        /* News Modal Styles */
+        .news-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .news-modal-content {
+            background-color: var(--container-bg);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        .news-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(88, 111, 107, 0.2);
+        }
+        
+        .news-modal-title {
+            color: #586F6B;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .news-close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            line-height: 1;
+        }
+        
+        .news-close:hover,
+        .news-close:focus {
+            color: #586F6B;
+        }
+        
+        .news-modal-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .news-modal-item {
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            background: rgba(88, 111, 107, 0.08);
+            border: 1px solid rgba(88, 111, 107, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .news-modal-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 15px var(--container-shadow);
+            background: rgba(88, 111, 107, 0.12);
+        }
+        
+        .news-modal-date {
+            font-size: 0.85em;
+            color: #586F6B;
+            font-weight: 600;
+            min-width: 70px;
+            flex-shrink: 0;
+        }
+        
+        .news-modal-title-text {
+            font-size: 0.95em;
+            font-weight: 500;
+            color: var(--text-color);
+            flex: 1;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -627,7 +799,7 @@
                 
                 <!-- Recent Achievements Section -->
                 <div class="achievements-subsection">
-                    <h3 class="achievements-subtitle">Recent Achievements</h3>
+                    <h3 class="achievements-subtitle">Recent News</h3>
                     <ul class="achievements-list-small">
                         <li class="achievement-item-small">
                             <span class="achievement-date-small">06/2024</span>
@@ -643,6 +815,26 @@
                         </li>
                     </ul>
                     <a href="#" class="show-more-small" onclick="showMoreAchievements()">Show More Achievements</a>
+                </div>
+                
+                <!-- Recent News Section -->
+                <div class="news-subsection">
+                    <h3 class="news-subtitle">Random Updates</h3>
+                    <ul class="news-list-small">
+                        <li class="news-item-small">
+                            <span class="news-date-small">09/25</span>
+                            <span class="news-title-small">Visited CDMX (Mexico City) for the first time!</span>
+                        </li>
+                        <li class="news-modal-item">
+                          <span class="news-modal-date">09/25</span>
+                          <span class="news-modal-title-text">Finally got around to vibecoding my portfolio!</span>
+                      </li>
+                      <li class="news-modal-item">
+                          <span class="news-modal-date">08/25</span>
+                          <span class="news-modal-title-text">Got free tickets to watch Laufey</span>
+                      </li>
+                    </ul>
+                    <a href="#" class="show-more-news" onclick="showMoreNews()">Show More News</a>
                 </div>
             </div>
             
@@ -688,6 +880,46 @@
                 <li class="modal-achievement-item">
                     <span class="modal-achievement-date">8/2023</span>
                     <span class="modal-achievement-title">Completed UC Berkeley Transfer-to-Excellence Summer Research Program</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- News Modal -->
+    <div id="newsModal" class="news-modal">
+        <div class="news-modal-content">
+            <div class="news-modal-header">
+                <h2 class="news-modal-title">All News & Updates</h2>
+                <span class="news-close">&times;</span>
+            </div>
+            <ul class="news-modal-list">
+                <li class="news-modal-item">
+                    <span class="news-modal-date">09/25</span>
+                    <span class="news-modal-title-text">Visited CDMX (Mexico City) for the first time!</span>
+                </li>
+                <li class="news-modal-item">
+                    <span class="news-modal-date">09/25</span>
+                    <span class="news-modal-title-text">Finally got around to vibecoding my portfolio!</span>
+                </li>
+                <li class="news-modal-item">
+                    <span class="news-modal-date">08/25</span>
+                    <span class="news-modal-title-text">Got free tickets to watch Laufey</span>
+                </li>
+                <li class="news-modal-item">
+                    <span class="news-modal-date">07/25</span>
+                    <span class="news-modal-title-text">Got free tickets to watch KATSEYE</span>
+                </li>
+                <li class="news-modal-item">
+                    <span class="news-modal-date">06/25</span>
+                    <span class="news-modal-title-text">Finished first year at Stanford!</span>
+                </li>
+                <li class="news-modal-item">
+                    <span class="news-modal-date">06/25</span>
+                    <span class="news-modal-title-text">Became a official member of AKPSI</span>
+                </li>
+                <li class="news-modal-item">
+                    <span class="news-modal-date">05/25</span>
+                    <span class="news-modal-title-text">Attended my first concert (COLDPLAY)</span>
                 </li>
             </ul>
         </div>
@@ -744,6 +976,39 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && modal.style.display === 'block') {
                 modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+        
+        // News Modal Functionality
+        const newsModal = document.getElementById('newsModal');
+        const showMoreNewsBtn = document.querySelector('.show-more-news');
+        const newsCloseBtn = document.getElementsByClassName('news-close')[0];
+        
+        // Show More News Function
+        function showMoreNews() {
+            newsModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+        
+        // Close news modal when clicking the X
+        newsCloseBtn.onclick = function() {
+            newsModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        
+        // Close news modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == newsModal) {
+                newsModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+        
+        // Close news modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && newsModal.style.display === 'block') {
+                newsModal.style.display = 'none';
                 document.body.style.overflow = 'auto'; // Restore scrolling
             }
         });

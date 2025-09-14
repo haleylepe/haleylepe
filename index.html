@@ -15,203 +15,173 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f9fa;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            background-color: #DDD5D0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             padding: 20px;
         }
         
-        header {
+        .container {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 40px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
         }
         
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            display: block;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         
-        .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        .main-content {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-            align-items: flex-start;
-        }
-        
-        .profile-section {
-            flex: 1;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .profile-image {
+        .profile-img-placeholder {
             width: 200px;
             height: 200px;
             border-radius: 50%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0 auto 20px;
+            margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 4em;
+            font-size: 3em;
             font-weight: bold;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #666;
+            font-weight: 300;
         }
         
         .bio {
-            text-align: center;
-        }
-        
-        .bio h2 {
-            color: #667eea;
-            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
         }
         
         .bio p {
             margin-bottom: 15px;
             text-align: left;
-        }
-        
-        .tech-stack {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .tech-stack h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-        
-        .tech-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .tech-item {
-            background: #667eea;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            line-height: 1.8;
         }
         
         .links {
-            text-align: center;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .links h3 {
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-        
-        .link-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 30px;
         }
         
         .link-button {
             display: inline-block;
             padding: 12px 24px;
-            background: #667eea;
-            color: white;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
             text-decoration: none;
             border-radius: 25px;
-            transition: background 0.3s ease;
-            font-weight: bold;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
         }
         
         .link-button:hover {
-            background: #5a6fd8;
+            background: #333;
+            color: white;
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         .contact {
-            text-align: center;
-            margin-top: 20px;
             color: #666;
+            font-size: 0.9em;
+        }
+        
+        .contact a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .todo-note {
+            background: rgba(255, 193, 7, 0.2);
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #856404;
         }
         
         @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .link-buttons {
+            .links {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .link-button {
+                width: 200px;
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Haley Lepe</h1>
-            <p class="subtitle">Sophomore at Stanford University | Computer Science | Aspiring Data Scientist & SWE</p>
-        </header>
+        <!-- TODO: Replace with your actual image -->
+        <img src="itsame-haley.png" alt="Haley L" class="profile-img">
         
-        <div class="main-content">
-            <div class="profile-section">
-                <div class="profile-image">HL</div>
-                <div class="bio">
-                    <h2>About Me</h2>
-                    <p>I'm passionate about tackling real-world problems through data analysis and predictive modeling. Continuously learning and building my skills, I believe that taking initiative is key to growth.</p>
-                    <p>Currently, I'm focusing on building machine learning models and diving deeper into data science. I'm looking for an internship where I can contribute to exciting projects and learn from industry professionals.</p>
-                    <p><strong>Fun Fact:</strong> A matcha/coffee is my favorite accessory! You can find me sipping on one while coding to my favorite Pokemon playlist, engaging in fun discussions on AI ethics, or decompressing with a TikTok scroll.</p>
-                </div>
-            </div>
-        </div>
+        <h1>TODO: Your Name</h1>
+        <p class="subtitle">TODO: Your Title/Role</p>
         
-        <div class="tech-stack">
-            <h3>🛠 Tech Stack</h3>
-            <div class="tech-list">
-                <span class="tech-item">Python</span>
-                <span class="tech-item">Java</span>
-                <span class="tech-item">C++</span>
-                <span class="tech-item">Pandas</span>
-                <span class="tech-item">NumPy</span>
-                <span class="tech-item">scikit-learn</span>
-                <span class="tech-item">TensorFlow</span>
-                <span class="tech-item">Jupyter Notebooks</span>
-                <span class="tech-item">Google Colab</span>
-                <span class="tech-item">Git</span>
-                <span class="tech-item">GitHub</span>
-            </div>
+        <div class="bio">
+            <p><strong>TODO:</strong> Write a brief introduction about yourself here. This could include your current role, what you're studying, or what you're passionate about.</p>
+            
+            <p><strong>TODO:</strong> Add more details about your background, interests, or what you're looking for in terms of opportunities.</p>
+            
+            <p><strong>TODO:</strong> Include any fun facts, hobbies, or personal touches that make you unique.</p>
         </div>
         
         <div class="links">
-            <h3>Connect With Me</h3>
-            <div class="link-buttons">
-                <a href="http://www.linkedin.com/in/haleylepe" class="link-button" target="_blank">LinkedIn</a>
-                <a href="https://github.com/haleylepe" class="link-button" target="_blank">GitHub</a>
-            </div>
-            <div class="contact">
-                <p>📧 <a href="mailto:halepe@stanford.edu">halepe@stanford.edu</a></p>
-            </div>
+            <a href="https://www.linkedin.com/in/yourprofile" class="link-button" target="_blank">LinkedIn</a>
+            <a href="https://github.com/yourusername" class="link-button" target="_blank">GitHub</a>
+        </div>
+        
+        <div class="contact">
+            <p>📧 <a href="mailto:your.email@example.com">TODO: your.email@example.com</a></p>
+        </div>
+        
+        <div class="todo-note">
+            <strong>📝 Image Tutorial:</strong> See the comments in the HTML code above for instructions on how to add your personal image to this webpage.
         </div>
     </div>
 </body>
